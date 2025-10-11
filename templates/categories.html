@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<!-- <style>
+</style> -->
+{% load static %}
+<section id="products" class="section products-section">
+    <div class="container" style="max-width: 1280px;">
+        <div class="section-header">
+            <span class="category-badge">Our One of The Best category</span>
+            <h2 class="section-title">
+                {{ categoryes.category_name| upper }}
+            </h2>
+            <!-- <div class="title-underline"></div>
+            <p class="section-desc">
+                Discover our comprehensive range of fertilizers, micronutrients, and bio-stimulants
+                <b>Click on card to see Product</b>
+            </p> -->
+        </div>
+
+        <!-- 3 Demo Products -->
+        <div class="products-grid">
+
+            <!-- Product 1 -->
+            {% for p in product%}
+            <!-- <div class="product-card">
+
+                <img src="{{ p.product_image.url }}" class="card-img-top img-fluid" alt="Product image"
+                    style="object-fit: cover; height: 290px;">
+
+                <h4 class="product-title">{{p.product_name|capfirst}}</h4>
+                <p class="product-desc">
+                    {{p.product_description}}
+                </p>
+                <a href="{% url 'product_details' categoryes.category_slug p.product_slug %}">
+                <div style="
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #2563eb;
+                        color: white;
+                        padding: 0.75rem 1.5rem;
+                        border-radius: 0.5rem;
+                        font-size: 1rem;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                        "
+                    onmouseover="this.style.backgroundColor='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.15)';"
+                    onmouseout="this.style.backgroundColor='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+                    <p style="margin: 0;">View Details</p>
+                </div>
+                </a>
+
+            </div> -->
+            <div class="product-card" style="
+    width: 320px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 1rem;
+" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)';">
+
+                <img src="{{ p.product_image.url }}" alt="Product image" style="
+        width: 100%;
+        height: 290px;
+        object-fit: contain;
+        border-radius: 12px;
+        background-color: #f8fafc;
+        margin-bottom: 1rem;
+    ">
+
+                <h4 class="product-title" style="
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 0.5rem;
+    ">{{ p.product_name|capfirst }}</h4>
+
+                <p class="product-desc" style="
+        font-size: 0.95rem;
+        color: #475569;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    ">{{ p.product_description }}</p>
+
+                <a href="{% url 'product_details' categoryes.category_slug p.product_slug %}"
+                    style="text-decoration: none;">
+                    <div style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        " onmouseover="this.style.backgroundColor='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.15)';"
+                        onmouseout="this.style.backgroundColor='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+                        View Details
+                    </div>
+                </a>
+            </div>
+
+            {% endfor %}
+        </div>
+
+
+    </div>
+</section>
+{% endblock %}

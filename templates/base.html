@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navayuga Chemtech - Rooted in Quality, Growing with You</title>
+    <meta name="description" content="Navayuga Chemtech - Leading manufacturer of NPK fertilizers, chelated micronutrients, organic fertilizers, and bio-insecticides for sustainable agriculture.">
+    <meta name="keywords" content="NPK fertilizers, water soluble fertilizers, chelated micronutrients, organic fertilizers, bio-insecticides, plant growth regulators, agriculture, Navayuga Chemtech">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product_details.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+<!-- <body class="bg-gray-50"> -->
+    {% include 'include/navbar.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% include 'include/footer.html' %}
+</body>

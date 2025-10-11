@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<section class="product-details">
+  <div class="product-container">
+    <!-- Left Image Section -->
+    <div class="image-section">
+      
+      <div class="main-image">
+        <img src="{{ single_product.product_image.url }}" alt="Organic Wheat Seeds">
+      </div>
+    </div>
+
+    <!-- Right Details Section -->
+    <div class="details">
+      <h2>{{single_product.product_name | capfirst }}</h2>
+      
+      <div class="in-seam">
+        <span>Category:</span> {{single_product.category_fk.category_name | capfirst}}
+      </div>
+
+      <div class="in-seam">
+        <p>
+          <span>Description:</span> {{single_product.product_description}}
+        </p>
+      </div>
+      <div class="in-seam">
+        <p>
+          <span>Crops:</span> {{single_product.packaging}}
+        </p>
+      </div>
+      <div class="in-seam">
+        <p>
+          <span>Packaging:</span> {{single_product.crops}}
+        </p>
+      </div>
+      <div class="in-seam">
+        <p>
+          <span>Dosage:</span> {{single_product.dosage}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}
