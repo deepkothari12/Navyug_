@@ -34,10 +34,10 @@
             <div class="footer-section">
                 <h4>Product Categories</h4>
                 <ul class="footer-links">
-                    <li><a href="#products">NPK Fertilizers</a></li>
-                    <li><a href="#products">Micronutrients</a></li>
-                    <li><a href="#products">Organic Fertilizers</a></li>
-                    <li><a href="#products">Plant Growth Promotors</a></li>
+                    <li><a href="{% url 'home' %}#products">NPK Fertilizers</a></li>
+                    <li><a href="{% url 'home' %}#products">Micronutrients</a></li>
+                    <li><a href="{% url 'home' %}#products">Organic Fertilizers</a></li>
+                    <li><a href="{% url 'home' %}#products">Plant Growth Promotors</a></li>
                 </ul>
             </div>
 
@@ -174,6 +174,8 @@
         contactForm.reset();
     });
 
-    console.log('%cWelcome to Navayuga Chemtech!', 'color: #689f38; font-size: 20px; font-weight: bold;');
-    console.log('%cRooted in Quality, Growing with You', 'color: #558b2f; font-size: 14px;');
+    // console.log('%cWelcome to Navayuga Chemtech!', 'color: #689f38; font-size: 20px; font-weight: bold;');
+    // console.log('%cRooted in Quality, Growing with You', 'color: #558b2f; font-size: 14px;');
+
+    
 </script>

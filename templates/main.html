@@ -141,28 +141,6 @@
             <!-- Product 1 -->
             {% if categories %}
             {% for cate in categories %}
-            <!-- <div class="product-card">
-
-                <img src="{{ cate.category_img.url }}" class="card-img-top img-fluid" alt="Product image"
-                    style="object-fit: cover; height: 290px;">
-
-                <h4 class="product-title">{{cate.category_name | upper}}</h4>
-                <p class="product-desc">
-                    {{cate.category_description}}
-                </p>
-
-                <a href="{% url 'specific_categories' cate.category_slug %}" style="display: inline-flex; align-items: center; justify-content: center;
-                        background-color: #2563eb; color: white; padding: 0.75rem 1.5rem;
-                        border-radius: 0.5rem; font-size: 1rem; font-weight: 500;
-                        text-decoration: none; transition: all 0.2s ease;
-                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);"
-                    onmouseover="this.style.backgroundColor='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.15)';"
-                    onmouseout="this.style.backgroundColor='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
-                    View Products
-                </a>
-
-
-            </div> -->
             <div class="product-card"
                 style="background-color: #ffffff; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; text-align: center; padding: 1rem;">
 
@@ -193,9 +171,6 @@
 
         <div class="text-center">
             <p>And many more products available for all your agricultural needs!</p>
-            <a href="#contact" class="btn-primary">
-                View Complete Catalog
-            </a>
         </div>
     </div>
 </section>
@@ -276,33 +251,9 @@
 
             </div>
 
-            <!-- <div class="contact-form-wrapper">
-                <h3>Send Us a Message</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label class="form-label">Your Name</label>
-                        <input type="text" class="form-input" placeholder="Enter your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Phone Number</label>
-                        <input type="tel" class="form-input" placeholder="Enter your phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-input" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Message</label>
-                        <textarea rows="4" class="form-textarea" placeholder="How can we help you?" required></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">
-                        Send Message
-                    </button>
-                </form>
-            </div> -->
             <div class="contact-form-wrapper">
                 <h3>Send Us a Message</h3>
-                <form id="contactForm" method="POST" action="{% url 'contact' %}">
+                <form action="{% url 'contacts' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
                         <label class="form-label">Your Name</label>

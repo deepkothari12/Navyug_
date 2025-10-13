@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'product_categories',
     'store',
+    'contacts',
+    'anymail',
 ]
 
 MIDDLEWARE = [
@@ -133,10 +135,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ##email configrations
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp-relay.brevo.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your_brevo_login_email'
-EMAIL_HOST_PASSWORD = 'your_brevo_api_key'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = 'anymail.backends.sendinblue.EmailBackend'
+ANYMAIL = {
+    "SENDINBLUE_API_KEY": "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"
+}
+DEFAULT_FROM_EMAIL = 'deepkothari923@gmail.com'
+# EMAIL_HOST = 'smtp-relay.brevo.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'deepkothari923@gmail.com'
+# EMAIL_HOST_PASSWORD = 'xsmtpsib-417721819c52b5fe83de4b21927bab54a601f1e8adac4bc06a190878264c3790-4dMxGkHFqU21LyZP'
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
