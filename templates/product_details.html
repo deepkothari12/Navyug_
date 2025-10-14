@@ -2,47 +2,103 @@
 
 {% block content %}
 {% load static %}
-<section class="product-details">
-  <div class="product-container">
+<section class="product-details" style="
+    margin-top: 80px; /* To prevent hiding under navbar */
+    padding: 1rem;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #ffffff;
+">
+  <div class="product-container" style="
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+  ">
+
     <!-- Left Image Section -->
-    <div class="image-section">
-      
-      <div class="main-image">
-        <img src="{{ single_product.product_image.url }}" alt="Organic Wheat Seeds">
+    <div class="image-section" style="
+        flex: 1 1 350px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    ">
+      <div class="main-image" style="
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      ">
+        <img src="{{ single_product.product_image.url }}" alt="Product Image" style="
+            width: 100%;
+            height: auto;
+            max-width: 450px;
+            border-radius: 1rem;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        ">
       </div>
     </div>
 
     <!-- Right Details Section -->
-    <div class="details">
-      <h2>{{single_product.product_name | capfirst }}</h2>
-      
-      <div class="in-seam">
-        <span>Category:</span> {{single_product.category_fk.category_name | capfirst}}
+    <div class="details" style="
+        flex: 1 1 350px;
+        max-width: 600px;
+        width: 100%;
+        box-sizing: border-box;
+        color: #111827;
+    ">
+      <h2 style="
+          font-size: clamp(1.5rem, 2vw, 2rem);
+          font-weight: 700;
+          color: #111827;
+          margin-bottom: 1rem;
+          word-wrap: break-word;
+      ">
+        {{ single_product.product_name|capfirst }}
+      </h2>
+
+      <div class="in-seam" style="margin-bottom: 1rem; font-size: 1rem;">
+        <span style="font-weight: 600; color: #2563eb;">Category:</span>
+        {{ single_product.category_fk.category_name|capfirst }}
       </div>
 
-      <div class="in-seam">
-        <p>
-          <span>Description:</span> {{single_product.product_description}}
+      <div class="in-seam" style="margin-bottom: 1rem;">
+        <p style="margin: 0; line-height: 1.6;">
+          <span style="font-weight: 600; color: #2563eb;">Description:</span>
+          {{ single_product.product_description }}
         </p>
       </div>
-      <div class="in-seam">
-        <p>
-          <span>Crops:</span> {{single_product.packaging}}
+
+      <div class="in-seam" style="margin-bottom: 1rem;">
+        <p style="margin: 0; line-height: 1.6;">
+          <span style="font-weight: 600; color: #2563eb;">Crops:</span>
+          {{ single_product.packaging }}
         </p>
       </div>
-      <div class="in-seam">
-        <p>
-          <span>Packaging:</span> {{single_product.crops}}
+
+      <div class="in-seam" style="margin-bottom: 1rem;">
+        <p style="margin: 0; line-height: 1.6;">
+          <span style="font-weight: 600; color: #2563eb;">Packaging:</span>
+          {{ single_product.crops }}
         </p>
       </div>
-      <div class="in-seam">
-        <p>
-          <span>Dosage:</span> {{single_product.dosage}}
+
+      <div class="in-seam" style="margin-bottom: 1rem;">
+        <p style="margin: 0; line-height: 1.6;">
+          <span style="font-weight: 600; color: #2563eb;">Dosage:</span>
+          {{ single_product.dosage }}
         </p>
       </div>
     </div>
   </div>
 </section>
-
-
 {% endblock content %}
