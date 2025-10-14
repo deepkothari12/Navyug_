@@ -87,23 +87,23 @@ WSGI_APPLICATION = 'Navyug_main.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Navayuga',          # tshe name you created in pgAdmin
-        'USER': 'postgres',        # your Postgres username
-        'PASSWORD': '2003',# the password you set during installation
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
 # DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.environ.get('DATABASE_URL'),
-#         conn_max_age=600,
-#         ssl_require=True
-#     )
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Navayuga',          # tshe name you created in pgAdmin
+#         'USER': 'postgres',        # your Postgres username
+#         'PASSWORD': '2003',# the password you set during installation
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
 # }
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
