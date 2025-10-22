@@ -1,140 +1,169 @@
 {% extends 'base.html' %}
-
-{% block content %}
 {% load static %}
-<section id="products" class="section products-section" style="
-    padding: 1rem;
-    margin: 0;
-    margin-top: 80px;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 100vh;
-">
-    <div class="container" style="
-        max-width:1280px;
-        margin:auto;
-        width:100%;
-        box-sizing:border-box;
-    ">
+{% block content %}
 
-        <div class="section-header" style="
-            text-align:center;
-            margin-bottom:2rem;
-        ">
-            <span style="
-                font-size:1rem;
-                font-weight:600;
-                color:#2563eb;
-                display:block;
-            ">
-                Our One of The Best category
-            </span>
-            <h2 style="
-                font-size:1.8rem;
-                font-weight:700;
-                color:#111827;
-                margin-top:0.5rem;
-                text-transform:uppercase;
-                word-wrap:break-word;
-            ">
-                {{ categoryes.category_name }}
-            </h2>
+<section id="products" class="products-section">
+  <div class="container">
+    <div class="section-header">
+      <span>Our One of The Best category</span>
+      <h2>{{ categoryes.category_name }}</h2>
+    </div>
+
+    <div id="productGrid">
+      {% for p in product %}
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{{ p.product_image.url }}" alt="{{ p.product_name }}">
         </div>
+        <h4>{{ p.product_name|capfirst }}</h4>
+        <p>{{ p.product_description|truncatechars:100 }}</p>
+        <a href="{% url 'product_details' categoryes.category_slug p.product_slug %}">View Product</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-        <!-- Product Grid -->
-        <div id="productGrid" style="
+<style>
+/* --- Layout Container --- */
+.products-section {
+  padding: 2rem 1rem;
+  margin-top: 80px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Section Header --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section-header span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2563eb;
+  display: block;
+}
+.section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+/* --- Product Grid --- */
+#productGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
-  align-items: stretch;
   justify-items: center;
   width: 100%;
   box-sizing: border-box;
-  padding-bottom: 1rem;
-">
-            {% for p in product %}
-            <div style="
-    background-color: #ffffff;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    text-align: center;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 320px;
-    height: 450px;  /* 👈 fixed card height */
-  " onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 18px rgba(0,0,0,0.15)';"
-                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
+}
 
-                <div style="
-      width: 100%;
-      height: 220px;  /* 👈 fixed image height */
-      overflow: hidden;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-    ">
-                    <img src='{{ p.product_image.url }}' alt='Product image' style="
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      ">
-                </div>
+/* --- Product Card --- */
+.product-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease;
+  width: 100%;
+  max-width: 320px;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
 
-                <h4 style="
-      margin-top: 0.25rem;
-      font-weight: 700;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: #111827;
-      word-wrap: break-word;
-      flex-shrink: 0;
-    ">
-                    {{ p.product_name|capfirst }}
-                </h4>
+/* --- Product Image --- */
+.product-image {
+  width: 100%;
+  height: 0;
+  padding-top: 70%; /* aspect ratio */
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.product-image img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-                <p style="
-      color: #4b5563;
-      font-size: clamp(0.85rem, 2vw, 0.95rem);
-      margin: 0.75rem 0 1.25rem 0;
-      line-height: 1.5;
-      padding: 0 0.5rem;
-      word-break: break-word;
-      flex-grow: 1;
-      overflow: hidden;
-    ">
-                    {{ p.product_description|truncatechars:100 }}
-                </p>
+/* --- Text & Description --- */
+.product-card h4 {
+  margin-top: 0.25rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #111827;
+}
+.product-card p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  margin: 0.75rem 0 1.25rem 0;
+  line-height: 1.5;
+  padding: 0 0.5rem;
+  word-break: break-word;
+  flex-grow: 1;
+}
 
-                <a href="{% url 'product_details' categoryes.category_slug p.product_slug %}" style="
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #2563eb;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 200px;
-    " onmouseover="this.style.backgroundColor='#1d4ed8';this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 15px rgba(0,0,0,0.15)';"
-                    onmouseout="this.style.backgroundColor='#2563eb';this.style.transform='translateY(0)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
-                    View Products
-                </a>
-            </div>
-            {% endfor %}
-        </div>
+/* --- Button --- */
+.product-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2563eb;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s ease;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+.product-card a:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
 
-    </div>
-</section>
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  .product-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+  .product-card p {
+    font-size: 0.85rem;
+  }
+}
+</style>
+
 {% endblock %}
