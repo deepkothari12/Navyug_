@@ -111,12 +111,12 @@ WSGI_APPLICATION = 'Navyug_main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST'),
-#'ep-dry-meadow-adq8va6g-pooler.c-2.us-east-1.aws.neon.tech',
-        'PORT': os.getenv('PORT'),
+        'NAME': os.environ.get('POSTGRES_DATABASE'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        #'ep-dry-meadow-adq8va6g-pooler.c-2.us-east-1.aws.neon.tech',
+        'PORT': os.environ.get('PORT'),
         'OPTIONS': {
             'sslmode': 'require',
         }
