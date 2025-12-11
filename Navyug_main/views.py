@@ -20,6 +20,7 @@ def home_page(request):
 
     return render(request, 'main.html' , context=context)
 
+
 def download_brochure(request):
     brochure_path = os.path.join(settings.MEDIA_ROOT, 'brocher', 'brochure_navayuga.pdf')
 
