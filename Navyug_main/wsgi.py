@@ -14,3 +14,6 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Navyug_main.settings')
 
 application = get_wsgi_application()
+
+## we used app beacuse in vercel we need app 
+app = application

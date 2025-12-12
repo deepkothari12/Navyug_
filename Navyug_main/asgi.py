@@ -15,12 +15,9 @@ ASGI config for Navyug_main project.
 
 # application = get_asgi_application()
 import os
+
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Navyug_main.settings")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_qr.settings')
 
 application = get_asgi_application()
-
-# Vercel requires a variable called "app" or "handler"
-app = application
-handler = application
