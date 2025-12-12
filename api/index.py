@@ -1,1 +1,1 @@
-from Navyug_main.asgi import app as handler
+from Navyug_main.asgi import app 

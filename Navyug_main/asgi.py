@@ -14,14 +14,13 @@ ASGI config for Navyug_main project.
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Navyug_main.settings')
 
 # application = get_asgi_application()
-
 import os
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Navyug_main.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Navyug_main.settings")
 
-django_app = get_asgi_application()
+application = get_asgi_application()
 
-# Vercel requires the callable to be named "app" or "handler"
-app = django_app
-handler = django_app
+# Vercel requires a variable called "app" or "handler"
+app = application
+handler = application
