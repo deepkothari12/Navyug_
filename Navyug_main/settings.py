@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-import dj_database_url
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +27,10 @@ SECRET_KEY = 'django-insecure-dl!ybwhem^5$vye31k-1@07#&dlc#gf02+5f47k*8=8cc^9mne
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["navayuga.onrender.com", "*"]  
+ALLOWED_HOSTS = [
+    "navayugachemtech.in",
+    "www.navayugachemtech.in",
+    ".vercel.app",]  
 
 
 # Application definition
