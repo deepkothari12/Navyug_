@@ -108,21 +108,6 @@ WSGI_APPLICATION = 'Navyug_main.wsgi.application'
 # }
 
 ## Database Configuration for Neon.tech with local .env file
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('POSTGRES_DATABASE'),
-#         'USER': os.environ.get('POSTGRES_USER'),
-#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-#         'HOST': os.environ.get('POSTGRES_HOST'),
-#         #'ep-dry-meadow-adq8va6g-pooler.c-2.us-east-1.aws.neon.tech',
-#         'PORT': os.environ.get('PORT'),
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         }
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -130,12 +115,27 @@ DATABASES = {
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': os.environ.get('POSTGRES_HOST'),
-        'PORT': os.environ.get('POSTGRES_PORT'),
+        #'ep-dry-meadow-adq8va6g-pooler.c-2.us-east-1.aws.neon.tech',
+        'PORT': os.environ.get('PORT'),
         'OPTIONS': {
             'sslmode': 'require',
         }
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('POSTGRES_DATABASE'),
+#         'USER': os.environ.get('POSTGRES_USER'),
+#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+#         'HOST': os.environ.get('POSTGRES_HOST'),
+#         'PORT': os.environ.get('POSTGRES_PORT'),
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         }
+#     }
+# }
 
 
 # Password validation
