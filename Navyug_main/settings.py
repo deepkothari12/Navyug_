@@ -88,16 +88,16 @@ WSGI_APPLICATION = 'Navyug_main.wsgi.application'
 #     }
 # }
 ## Default Postgresql Database Configuration
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Navayuga',          # tshe name you created in pgAdmin
-        'USER': 'postgres',        # your Postgres username
-        'PASSWORD': '2003',# the password you set during installation
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Navayuga',          # tshe name you created in pgAdmin
+#         'USER': 'postgres',        # your Postgres username
+#         'PASSWORD': '2003',# the password you set during installation
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 ## Database Configuration for Render.com
 # DATABASES = {
 #     'default': dj_database_url.config(
@@ -123,19 +123,19 @@ DATABASES = {
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('POSTGRES_DATABASE'),
-#         'USER': os.environ.get('POSTGRES_USER'),
-#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-#         'HOST': os.environ.get('POSTGRES_HOST'),
-#         'PORT': os.environ.get('POSTGRES_PORT'),
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         }
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DATABASE'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
+    }
+}
 
 
 # Password validation
