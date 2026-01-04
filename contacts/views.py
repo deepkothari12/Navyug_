@@ -18,7 +18,7 @@ def contacts(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
 
-        print(name, phone, email, message)
+        # print(name, phone, email, message)
 
         # Create HTML email content
         html_message = render_to_string('emails/contact_email.html', {
@@ -28,17 +28,20 @@ def contacts(request):
             'message': message,
         })
         plain_message = strip_tags(html_message)
-        # print("-->", plain_message)
+        print("-->", plain_message)
         try:
             send_mail(
                 subject=f'New Inquiry from {name}',
                 message=plain_message,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['deepkothari55@gmail.com'],  # where you want to receive messages
-                html_message=html_message,
+                from_email = settings.DEFAULT_FROM_EMAIL,
+                recipient_list=['navayugachemtech@gmail.com'],  # where you want to receive messages
+                html_message = html_message,
             )
+            print("Email sent successfully")
             messages.success(request, 'Thank you for contacting us! We will get back to you soon.')
+
         except Exception as e:
+            print("Error sending email:", e)
             messages.error(request, f'Sorry, something went wrong: {e}')
 
     
